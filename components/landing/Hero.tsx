@@ -123,7 +123,7 @@ export function Hero() {
           <motion.div variants={itemVariants} className="mb-5 flex items-center gap-3 sm:mb-6 sm:gap-4">
             <motion.div variants={lineVariants} className="h-px w-8 origin-left bg-accent sm:w-12" />
             <p className="text-[10px] uppercase tracking-[0.26em] text-accent sm:text-sm sm:tracking-[0.3em]">
-              Clínica de Arquitectura
+              Clínica del Espacio
             </p>
           </motion.div>
 
@@ -131,22 +131,17 @@ export function Hero() {
             variants={itemVariants}
             className="max-w-[15rem] text-balance font-serif text-[3.1rem] leading-[0.94] tracking-tight text-foreground sm:max-w-[18rem] sm:text-5xl md:max-w-none md:text-6xl lg:text-7xl"
           >
-            Arquitectura que sana.
+            Espacios que transforman.
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="mt-5 max-w-[19rem] text-pretty text-[0.98rem] leading-7 text-muted-foreground sm:mt-6 sm:max-w-xl sm:text-lg md:mt-8 md:text-xl"
           >
-            <span className="sm:hidden">
-              Exploramos cómo vives para crear refugios de luz, calma y armonía
-              con una sensibilidad serena y muy cuidada.
-            </span>
-            <span className="hidden sm:inline">
-              En Arthea Studio no solo diseñamos edificios; exploramos cómo
-              vives y sueñas para crear refugios de luz, calma y armonía, ya
-              sea en el corazón de la ciudad o frente al mar.
-            </span>
+            En Arthea Studio no solo diseñamos y renovamos espacios; exploramos cómo
+            vives, trabajas y sueñas para crear lugares llenos de luz, calma y armonía,
+            ya sea redefiniendo un hogar existente o dando forma a un nuevo proyecto en
+            el corazón de la ciudad o frente al mar.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">

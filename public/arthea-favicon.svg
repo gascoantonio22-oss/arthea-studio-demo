@@ -1,0 +1,22 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="90" y1="26" x2="90" y2="156" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0BC82" />
+      <stop offset="1" stop-color="#C89B58" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="38" fill="#141414" />
+  <path
+    d="M90.0021 34L127.5 76.9H111.582L98.5687 62.9657L90.0021 72.7444L81.4313 62.9657L68.4181 76.9H52.5L90.0021 34Z"
+    fill="url(#gold)"
+  />
+  <path
+    d="M70.0137 80.375L90.0021 71.8079L109.99 80.375V92.7639L90.0021 84.5826L70.0137 92.7639V80.375Z"
+    fill="url(#gold)"
+  />
+  <rect x="69.1172" y="92.1328" width="10.2731" height="35.343" rx="1.8" fill="url(#gold)" />
+  <rect x="84.8633" y="87.8359" width="10.2731" height="39.6402" rx="1.8" fill="url(#gold)" />
+  <rect x="100.609" y="92.1328" width="10.2731" height="35.343" rx="1.8" fill="url(#gold)" />
+  <rect x="61.3867" y="128.82" width="57.2308" height="8.87912" rx="1.6" fill="url(#gold)" />
+  <rect x="55" y="141.996" width="70.0032" height="9.88629" rx="1.6" fill="url(#gold)" />
+</svg>

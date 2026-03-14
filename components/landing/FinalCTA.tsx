@@ -37,71 +37,52 @@ export function FinalCTA() {
         initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 mx-auto max-w-7xl px-6"
+        className="relative z-10 mx-auto max-w-5xl px-6"
       >
         <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent/90">
             Primera reunión
           </p>
           <h2 className="text-balance font-serif text-[2.35rem] tracking-tight text-primary-foreground md:text-[4rem]">
-            Un cierre sereno para empezar bien
+            Cuéntanos lo que buscas
           </h2>
           <p className="mx-auto mt-5 max-w-[34rem] text-pretty text-[0.98rem] leading-relaxed text-primary-foreground/60 md:text-[1.04rem]">
-            Si la dirección del proyecto encaja contigo, aquí puedes dar el paso de forma
-            clara, sin ruido y con el contexto justo.
+            Un primer contexto claro nos ayuda a entender el tipo de proyecto, el momento
+            en el que estás y cómo orientar la siguiente conversación.
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.68fr_1fr] lg:gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -18, filter: 'blur(10px)' }}
-            animate={isInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
-            transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col justify-between rounded-[1.9rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-7 shadow-[0_18px_34px_rgba(0,0,0,0.14)] backdrop-blur-sm md:p-8"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
+          animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+          transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
+        >
+          <div className="mb-7 flex flex-col gap-4 border-b border-border/45 pb-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent/88">
-                Antes de enviar
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/88">
+                Formulario
               </p>
-              <h3 className="mt-4 max-w-[18rem] font-serif text-[1.7rem] leading-[1.02] tracking-tight text-primary-foreground md:text-[2rem]">
-                Solo lo esencial, bien planteado
-              </h3>
-              <p className="mt-5 max-w-[26rem] text-[0.95rem] leading-relaxed text-primary-foreground/64">
-                Cuéntanos el tipo de espacio, el momento en el que estás y qué necesitas
-                resolver. Con eso, la conversación ya empieza con una base real.
+              <p className="mt-3 max-w-[28rem] text-[0.95rem] leading-relaxed text-muted-foreground">
+                Solo lo esencial para que la primera reunión empiece con contexto real.
               </p>
-
-              <div className="mt-8 space-y-3 border-t border-white/8 pt-6 text-[0.9rem] leading-relaxed text-primary-foreground/58">
-                <p>Alcance claro desde el primer contacto.</p>
-                <p>Tiempos e inversión tratados con más contexto.</p>
-              </div>
             </div>
 
-            <div className="mt-8 border-t border-white/8 pt-6">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/86">
-                WhatsApp
-              </p>
-              <a
-                href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-[rgba(255,255,255,0.04)] px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary-foreground/88 transition-all duration-300 hover:border-accent/38 hover:bg-[rgba(255,255,255,0.08)] hover:text-primary-foreground"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Escribir por WhatsApp
-              </a>
-            </div>
-          </motion.div>
+            <a
+              href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 18, filter: 'blur(10px)' }}
-            animate={isInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
-            transition={{ duration: 0.85, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.955)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
-          >
+          <div className="[&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
             <ConsultationFormContent />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );

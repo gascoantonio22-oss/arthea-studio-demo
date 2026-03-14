@@ -96,37 +96,37 @@ export function FAQ() {
       </motion.div>
 
       <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={isInView ? { scaleX: 1, opacity: 1 } : {}}
+        transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute top-0 left-1/2 h-px w-[min(88vw,980px)] -translate-x-1/2 origin-center bg-gradient-to-r from-transparent via-accent/28 to-transparent"
+      />
+
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="relative z-10 mx-auto max-w-7xl px-5 md:px-6"
+        className="relative z-10 mx-auto max-w-4xl px-5 md:px-6"
       >
-        <div className="grid gap-8 lg:grid-cols-[0.78fr_1fr] lg:gap-12 xl:gap-16">
-          <motion.div variants={itemVariants} className="lg:pt-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-accent">
-              Preguntas frecuentes
-            </p>
-            <h2 className="mt-4 max-w-[18rem] text-balance font-serif text-[2.45rem] leading-[0.95] tracking-tight text-foreground md:max-w-none md:text-[3.45rem]">
-              Lo importante antes de dar el siguiente paso
-            </h2>
-            <p className="mt-6 max-w-[33rem] text-[1rem] leading-relaxed text-muted-foreground md:text-[1.05rem]">
-              Resolvemos las dudas que más condicionan una decisión bien tomada:
-              alcance, tiempos, presupuesto y acompañamiento. La idea es que todo
-              se entienda con claridad antes de convertirlo en proyecto.
-            </p>
+        <motion.div variants={itemVariants} className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-accent">
+            Preguntas frecuentes
+          </p>
+          <h2 className="mt-4 text-balance font-serif text-[2.45rem] leading-[0.95] tracking-tight text-foreground md:text-[3.45rem]">
+            Resuelve tus inquietudes
+          </h2>
+          <p className="mx-auto mt-5 max-w-[36rem] text-[1rem] leading-relaxed text-muted-foreground md:text-[1.05rem]">
+            Todo lo importante para entender el proceso con claridad antes de pasar a la
+            primera reunión.
+          </p>
+        </motion.div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {['Proyecto', 'Tiempos', 'Inversión', 'Ejecución'].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-border/60 bg-white/55 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-foreground/72"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+          animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+          transition={{ duration: 0.9, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 md:mt-10"
+        >
           <Accordion
             type="single"
             collapsible
@@ -158,7 +158,7 @@ export function FAQ() {
               </motion.div>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

@@ -138,10 +138,16 @@ export function Hero() {
             variants={itemVariants}
             className="mt-5 max-w-[19rem] text-pretty text-[0.98rem] leading-7 text-muted-foreground sm:mt-6 sm:max-w-xl sm:text-lg md:mt-8 md:text-xl"
           >
-            En Arthea Studio no solo diseñamos y renovamos espacios; exploramos cómo
-            vives, trabajas y sueñas para crear lugares llenos de luz, calma y armonía,
-            ya sea redefiniendo un hogar existente o dando forma a un nuevo proyecto en
-            el corazón de la ciudad o frente al mar.
+            <span className="md:hidden">
+              Diseñamos y renovamos espacios para convertirlos en lugares de luz, calma
+              y armonía.
+            </span>
+            <span className="hidden md:inline">
+              En Arthea Studio no solo diseñamos y renovamos espacios; exploramos cómo
+              vives, trabajas y sueñas para crear lugares llenos de luz, calma y
+              armonía, ya sea redefiniendo un hogar existente o dando forma a un nuevo
+              proyecto en el corazón de la ciudad o frente al mar.
+            </span>
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">

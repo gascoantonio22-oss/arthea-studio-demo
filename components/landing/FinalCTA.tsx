@@ -61,13 +61,23 @@ export function FinalCTA() {
         </div>
 
         <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 flex flex-col items-center md:mb-10"
+        >
+          <div className="h-10 w-px bg-gradient-to-b from-accent/0 via-accent/38 to-accent/10" />
+          <div className="mt-2 h-2.5 w-2.5 rounded-full border border-accent/35 bg-[rgba(255,251,246,0.9)] shadow-[0_0_0_10px_rgba(191,153,101,0.05)]" />
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
           animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
           transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
         >
-          <div className="text-left">
-            <div className="max-w-[30rem]">
+          <div className="text-center">
+            <div className="mx-auto max-w-[30rem]">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/88">
                 Formulario
               </p>
@@ -76,7 +86,7 @@ export function FinalCTA() {
               </p>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <button
                 type="button"
                 onClick={() => setIsFormOpen((current) => !current)}
@@ -92,7 +102,7 @@ export function FinalCTA() {
                 href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/26 bg-[rgba(191,153,101,0.08)] px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/84 shadow-[0_8px_20px_rgba(191,153,101,0.08)] transition-all duration-300 hover:border-accent/42 hover:bg-[rgba(191,153,101,0.14)] hover:text-foreground"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp

@@ -217,7 +217,11 @@ export function LaExperiencia() {
   };
 
   return (
-    <section ref={sectionRef} id="metodo" className="relative overflow-hidden bg-card py-20 md:py-32">
+    <section
+      ref={sectionRef}
+      id="metodo"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#fbf7f1_0%,#f6efe5_100%)] py-20 md:py-32"
+    >
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.03 }}

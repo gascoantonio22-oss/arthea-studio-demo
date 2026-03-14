@@ -93,7 +93,7 @@ export function Filosofia() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-y border-border/50 bg-secondary/30 py-8 md:py-16"
+      className="relative overflow-hidden border-y border-border/50 bg-[linear-gradient(180deg,#f4ecdf_0%,#efe5d8_100%)] py-8 md:py-16"
     >
       <div className="mx-auto max-w-5xl px-5 md:px-6">
         <motion.p

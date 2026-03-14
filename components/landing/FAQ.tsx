@@ -74,7 +74,7 @@ export function FAQ() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#f7f1e8_0%,#f6efe5_42%,#fbf7f1_100%)] pt-12 pb-18 md:pt-16 md:pb-22"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#ece1d4_0%,#e7dacc_48%,#efe5d9_100%)] pt-12 pb-18 md:pt-16 md:pb-22"
     >
       <motion.div
         initial={{ opacity: 0, y: -16 }}

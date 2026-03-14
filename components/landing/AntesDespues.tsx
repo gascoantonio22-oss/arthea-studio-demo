@@ -182,7 +182,11 @@ export function AntesDespues() {
   };
 
   return (
-    <section ref={sectionRef} id="portfolio" className="relative overflow-hidden bg-background py-24 md:py-28">
+    <section
+      ref={sectionRef}
+      id="portfolio"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#f0e7db_0%,#ebdfd1_100%)] py-24 md:py-28"
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.03 } : {}}

@@ -1,13 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { MessageCircle } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import { ConsultationFormContent } from '@/components/modal/ConsultationFormContent';
 
 export function FinalCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <section
@@ -65,7 +66,7 @@ export function FinalCTA() {
           transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
         >
-          <div className="mb-7 border-b border-border/45 pb-6 text-left">
+          <div className="text-left">
             <div className="max-w-[30rem]">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/88">
                 Formulario
@@ -75,20 +76,46 @@ export function FinalCTA() {
               </p>
             </div>
 
-            <a
-              href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </a>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setIsFormOpen((current) => !current)}
+                className="group inline-flex items-center gap-2 rounded-full border border-foreground/12 bg-[rgba(23,21,22,0.96)] px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-[0_10px_22px_rgba(20,16,12,0.08)] transition-all duration-300 hover:border-accent/32 hover:bg-[rgba(23,21,22,1)]"
+              >
+                {isFormOpen ? 'Ocultar formulario' : 'Abrir formulario'}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-300 ${isFormOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <a
+                href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+            </div>
           </div>
 
-          <div className="[&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
-            <ConsultationFormContent />
-          </div>
+          <AnimatePresence initial={false}>
+            {isFormOpen ? (
+              <motion.div
+                key="form"
+                initial={{ height: 0, opacity: 0, y: -8 }}
+                animate={{ height: 'auto', opacity: 1, y: 0 }}
+                exit={{ height: 0, opacity: 0, y: -8 }}
+                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="mt-7 border-t border-border/45 pt-7 [&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
+                  <ConsultationFormContent />
+                </div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </motion.div>
       </motion.div>
     </section>

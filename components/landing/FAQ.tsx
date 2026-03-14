@@ -140,10 +140,7 @@ export function FAQ() {
                   className="rounded-[1.7rem] border border-border/60 bg-[rgba(255,255,255,0.82)] px-5 shadow-[0_20px_50px_rgba(20,20,20,0.04)] backdrop-blur-sm transition-[border-color,box-shadow,background-color,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=open]:border-accent/28 data-[state=open]:bg-[rgba(255,255,255,0.96)] data-[state=open]:shadow-[0_28px_56px_rgba(20,20,20,0.07)] md:px-7"
                 >
                   <AccordionTrigger className="group relative justify-center py-5 text-center font-serif text-[1.12rem] leading-[1.2] font-medium text-foreground hover:no-underline md:py-6 md:text-[1.42rem] md:leading-[1.16]">
-                    <span className="relative mx-auto block w-full max-w-[40rem] px-8 text-center md:px-12">
-                      <span className="absolute left-0 top-0.5 text-[0.7rem] font-semibold tracking-[0.24em] text-accent/78">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
+                    <span className="relative mx-auto block w-full max-w-[40rem] px-4 text-center md:px-10">
                       <span className="block text-balance transition-colors duration-300 group-data-[state=open]:text-foreground">
                         {faq.question}
                       </span>

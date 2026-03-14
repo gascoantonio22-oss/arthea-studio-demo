@@ -34,6 +34,13 @@ export function FinalCTA() {
       </motion.div>
 
       <motion.div
+        initial={{ opacity: 0, scale: 0.82, filter: 'blur(28px)' }}
+        animate={isInView ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
+        transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute inset-x-0 top-16 mx-auto h-[26rem] w-[min(86vw,54rem)] rounded-full bg-[radial-gradient(circle,rgba(191,153,101,0.12)_0%,rgba(191,153,101,0.06)_34%,transparent_72%)]"
+      />
+
+      <motion.div
         initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -58,8 +65,8 @@ export function FinalCTA() {
           transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
         >
-          <div className="mb-7 flex flex-col gap-4 border-b border-border/45 pb-6 md:flex-row md:items-end md:justify-between">
-            <div>
+          <div className="mb-7 border-b border-border/45 pb-6 text-center">
+            <div className="mx-auto max-w-[30rem]">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/88">
                 Formulario
               </p>
@@ -72,14 +79,14 @@ export function FinalCTA() {
               href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
+              className="mt-5 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-foreground/72 transition-colors duration-300 hover:text-accent"
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>
           </div>
 
-          <div className="[&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
+          <div className="[&_label]:text-center [&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_p]:text-center [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
             <ConsultationFormContent />
           </div>
         </motion.div>

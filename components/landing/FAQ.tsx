@@ -74,7 +74,7 @@ export function FAQ() {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative overflow-hidden bg-background pt-10 pb-20 md:pt-12 md:pb-24"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#f7f1e8_0%,#f6efe5_42%,#fbf7f1_100%)] pt-12 pb-18 md:pt-16 md:pb-22"
     >
       <motion.div
         initial={{ opacity: 0, y: -16 }}
@@ -99,36 +99,66 @@ export function FAQ() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="relative z-10 mx-auto max-w-4xl px-5 md:px-6"
+        className="relative z-10 mx-auto max-w-7xl px-5 md:px-6"
       >
-        <motion.div variants={itemVariants} className="text-center">
-          <h2 className="text-balance font-serif text-[2.35rem] leading-[0.96] tracking-tight text-foreground md:text-[3.05rem]">
-            Preguntas Frecuentes
-          </h2>
-        </motion.div>
+        <div className="grid gap-8 lg:grid-cols-[0.78fr_1fr] lg:gap-12 xl:gap-16">
+          <motion.div variants={itemVariants} className="lg:pt-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-accent">
+              Preguntas frecuentes
+            </p>
+            <h2 className="mt-4 max-w-[18rem] text-balance font-serif text-[2.45rem] leading-[0.95] tracking-tight text-foreground md:max-w-none md:text-[3.45rem]">
+              Lo importante antes de dar el siguiente paso
+            </h2>
+            <p className="mt-6 max-w-[33rem] text-[1rem] leading-relaxed text-muted-foreground md:text-[1.05rem]">
+              Resolvemos las dudas que más condicionan una decisión bien tomada:
+              alcance, tiempos, presupuesto y acompañamiento. La idea es que todo
+              se entienda con claridad antes de convertirlo en proyecto.
+            </p>
 
-        <Accordion
-          type="single"
-          collapsible
-          defaultValue="faq-0"
-          className="mt-6 space-y-3 md:mt-8 md:space-y-4"
-        >
-          {faqs.map((faq, index) => (
-            <motion.div key={faq.question} variants={itemVariants}>
-              <AccordionItem
-                value={`faq-${index}`}
-                className="rounded-sm border border-border/60 bg-card/95 px-5 shadow-[0_14px_30px_rgba(20,20,20,0.03)] transition-[border-color,box-shadow,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=open]:border-accent/30 data-[state=open]:bg-[rgba(255,255,255,0.98)] data-[state=open]:shadow-[0_22px_44px_rgba(20,20,20,0.05)] md:px-6"
-              >
-                <AccordionTrigger className="relative justify-center py-5 pr-9 text-center font-serif text-[1.18rem] leading-[1.18] font-medium text-foreground hover:no-underline md:py-6 md:pr-10 md:text-[1.55rem] md:leading-[1.14] [&>svg]:absolute [&>svg]:right-0 [&>svg]:top-1/2 [&>svg]:-translate-y-1/2">
-                  <span className="mx-auto block w-full max-w-[30rem] text-center">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="mx-auto max-w-[34rem] pb-5 text-center text-[0.98rem] leading-relaxed text-muted-foreground md:pb-6 md:text-[1.02rem]">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
-          ))}
-        </Accordion>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {['Proyecto', 'Tiempos', 'Inversión', 'Ejecución'].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-border/60 bg-white/55 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-foreground/72"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="faq-0"
+            className="space-y-3 md:space-y-4"
+          >
+            {faqs.map((faq, index) => (
+              <motion.div key={faq.question} variants={itemVariants}>
+                <AccordionItem
+                  value={`faq-${index}`}
+                  className="rounded-[1.7rem] border border-border/60 bg-[rgba(255,255,255,0.82)] px-5 shadow-[0_20px_50px_rgba(20,20,20,0.04)] backdrop-blur-sm transition-[border-color,box-shadow,background-color,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] data-[state=open]:border-accent/28 data-[state=open]:bg-[rgba(255,255,255,0.96)] data-[state=open]:shadow-[0_28px_56px_rgba(20,20,20,0.07)] md:px-7"
+                >
+                  <AccordionTrigger className="group py-5 text-left font-serif text-[1.12rem] leading-[1.2] font-medium text-foreground hover:no-underline md:py-6 md:text-[1.42rem] md:leading-[1.16]">
+                    <span className="flex w-full items-start gap-4 pr-6 md:gap-5 md:pr-10">
+                      <span className="mt-0.5 min-w-[1.7rem] text-[0.7rem] font-semibold tracking-[0.24em] text-accent/78 md:min-w-[1.9rem]">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="max-w-[35rem] text-balance transition-colors duration-300 group-data-[state=open]:text-foreground">
+                        {faq.question}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6 pl-[2.15rem] text-[0.96rem] leading-relaxed text-muted-foreground md:pb-7 md:pl-[2.55rem] md:text-[1rem]">
+                    <div className="max-w-[38rem] border-t border-border/45 pt-4 md:pt-5">
+                      {faq.answer}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
+            ))}
+          </Accordion>
+        </div>
       </motion.div>
     </section>
   );

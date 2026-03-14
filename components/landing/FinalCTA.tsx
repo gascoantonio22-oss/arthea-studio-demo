@@ -2,18 +2,17 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { useConsultationModal } from '@/components/hooks/useConsultationModal';
+import { MessageCircle } from 'lucide-react';
+import { ConsultationFormContent } from '@/components/modal/ConsultationFormContent';
 
 export function FinalCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
-  const { open } = useConsultationModal();
 
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(181,142,97,0.18),transparent_18%),linear-gradient(180deg,#181518_0%,#101012_100%)] py-24 text-center text-primary-foreground md:py-28"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(181,142,97,0.16),transparent_18%),linear-gradient(180deg,#171416_0%,#0f0f11_100%)] py-20 text-primary-foreground md:py-24"
     >
       <motion.div
         initial={{ opacity: 0, y: -16 }}
@@ -38,49 +37,77 @@ export function FinalCTA() {
         initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 mx-auto max-w-3xl px-6"
+        className="relative z-10 mx-auto max-w-7xl px-6"
       >
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent/90">
-          Siguiente paso
-        </p>
-        <h2 className="text-balance font-serif text-4xl tracking-tight text-primary-foreground md:text-5xl">
-          Iniciar diagnóstico
-        </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-pretty text-[1.02rem] leading-relaxed text-primary-foreground/64 md:text-[1.08rem]">
-          Si el proyecto merece una lectura rigurosa, la primera conversación es el punto
-          donde todo empieza a ordenarse con claridad, criterio y dirección.
-        </p>
+        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-14">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent/90">
+            Primera reunión
+          </p>
+          <h2 className="text-balance font-serif text-[2.55rem] tracking-tight text-primary-foreground md:text-5xl">
+            El punto donde la web se convierte en proyecto
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[1rem] leading-relaxed text-primary-foreground/64 md:text-[1.08rem]">
+            Si la dirección del espacio importa de verdad, este es el lugar natural para
+            pasar de la inspiración a una conversación concreta, ordenada y útil.
+          </p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex justify-center"
-        >
-          <motion.button
-            type="button"
-            onClick={open}
-            className="group relative inline-flex min-w-[15.5rem] items-center justify-center gap-3 overflow-hidden rounded-full border border-accent/28 bg-[linear-gradient(180deg,rgba(255,252,248,0.1),rgba(255,252,248,0.04))] px-8 py-4 text-[0.74rem] font-semibold uppercase tracking-[0.26em] text-primary-foreground shadow-[0_18px_40px_rgba(0,0,0,0.24)] backdrop-blur-md transition-all duration-300 hover:border-accent/52 hover:text-primary-foreground"
-            whileHover={{ scale: 1.02, y: -1 }}
-            whileTap={{ scale: 0.985 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+        <div className="grid gap-8 lg:grid-cols-[0.84fr_1fr]">
+          <motion.div
+            initial={{ opacity: 0, x: -18, filter: 'blur(10px)' }}
+            animate={isInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-8 shadow-[0_28px_60px_rgba(0,0,0,0.22)] backdrop-blur-md md:p-10"
           >
-            <span className="relative z-10">Iniciar diagnóstico</span>
-            <motion.span
-              className="relative z-10"
-              initial={{ x: 0 }}
-              whileHover={{ x: 4 }}
-              transition={{ type: 'spring', stiffness: 360, damping: 18 }}
-            >
-              <ArrowRight className="h-4 w-4" />
-            </motion.span>
-            <motion.div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(214,178,120,0.28),transparent_58%)] opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.32, ease: 'easeOut' }}
-            />
-          </motion.button>
-        </motion.div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+              Antes de empezar
+            </p>
+            <h3 className="mt-4 max-w-[22rem] font-serif text-[2rem] leading-[0.98] tracking-tight text-primary-foreground md:text-[2.35rem]">
+              Una conversación breve puede ordenar mucho más de lo que parece
+            </h3>
+            <p className="mt-5 max-w-[31rem] text-[0.98rem] leading-relaxed text-primary-foreground/70">
+              Nos ayuda a entender el tipo de vivienda o intervención, el momento en el
+              que estás y el nivel de ambición del proyecto. Así, la siguiente decisión
+              ya no nace de una intuición suelta, sino de un contexto claro.
+            </p>
+
+            <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+
+            <div className="space-y-4 text-[0.95rem] leading-relaxed text-primary-foreground/68">
+              <p>Respuesta centrada en tu caso y en el punto real en el que se encuentra.</p>
+              <p>Primera lectura útil para hablar de alcance, tiempos e inversión.</p>
+              <p>Un contacto sereno, sin presión comercial y sin formularios impersonales.</p>
+            </div>
+
+            <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-[rgba(255,255,255,0.04)] p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+                WhatsApp
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-primary-foreground/68">
+                Si prefieres un contacto más directo, puedes escribirnos ahora y abrir la
+                conversación desde ahí.
+              </p>
+              <a
+                href="https://wa.me/34911234567?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20una%20primera%20reuni%C3%B3n%20para%20mi%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/35 bg-[rgba(255,255,255,0.06)] px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-primary-foreground transition-all duration-300 hover:border-accent/58 hover:bg-[rgba(255,255,255,0.1)]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Escribir por WhatsApp
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 18, filter: 'blur(10px)' }}
+            animate={isInView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 0.85, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-[2rem] border border-white/12 bg-[rgba(255,251,246,0.96)] p-8 shadow-[0_28px_60px_rgba(0,0,0,0.2)] md:p-10"
+          >
+            <ConsultationFormContent />
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

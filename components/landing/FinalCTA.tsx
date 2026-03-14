@@ -13,7 +13,8 @@ export function FinalCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(181,142,97,0.11),transparent_18%),linear-gradient(180deg,#151315_0%,#101012_100%)] py-18 text-primary-foreground md:py-20"
+      id="formulario"
+      className="relative scroll-mt-24 overflow-hidden bg-[radial-gradient(circle_at_top,rgba(181,142,97,0.11),transparent_18%),linear-gradient(180deg,#151315_0%,#101012_100%)] py-18 text-primary-foreground md:py-20"
     >
       <motion.div
         initial={{ opacity: 0, y: -16 }}

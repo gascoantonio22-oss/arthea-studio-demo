@@ -1,8 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ArrowRight, Calendar, Phone } from 'lucide-react';
 import { useConsultationModal } from '@/components/hooks/useConsultationModal';
+import { useSmoothScroll } from '@/components/hooks/useSmoothScroll';
 import {
   Dialog,
   DialogContent,
@@ -14,15 +15,25 @@ import { Button } from '@/components/ui/button';
 
 export function ConsultationModal() {
   const router = useRouter();
+  const pathname = usePathname();
   const { isOpen, close } = useConsultationModal();
+  const { scrollToSection } = useSmoothScroll();
   const whatsappMessage = encodeURIComponent(
     'Hola, me gustaría solicitar una primera reunión para mi proyecto de arquitectura.'
   );
 
   const handleContactRedirect = () => {
     close();
+
+    if (pathname === '/') {
+      window.setTimeout(() => {
+        scrollToSection('#formulario');
+      }, 120);
+      return;
+    }
+
     window.setTimeout(() => {
-      router.push('/contact');
+      router.push('/#formulario');
     }, 80);
   };
 
@@ -68,8 +79,8 @@ export function ConsultationModal() {
             <div className="flex-1 text-left">
               <p className="font-medium text-foreground">Formulario</p>
               <p className="text-sm text-muted-foreground">
-                Déjanos tus datos y te responderemos con precisión y detalle, cuidando cada
-                aspecto de tu proyecto.
+                Te lleva al formulario de la landing para contarnos tu proyecto con más
+                contexto y calma.
               </p>
             </div>
             <ArrowRight className="h-5 w-5 text-muted-foreground" />

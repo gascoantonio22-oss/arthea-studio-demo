@@ -6,7 +6,6 @@ import { Hero } from '@/components/landing/Hero';
 import { Filosofia } from '@/components/landing/Filosofia';
 import { LaExperiencia } from '@/components/landing/LaExperiencia';
 import { AntesDespues } from '@/components/landing/AntesDespues';
-import { Metodologia } from '@/components/landing/Metodologia';
 import { FAQ } from '@/components/landing/FAQ';
 import { FinalCTA } from '@/components/landing/FinalCTA';
 
@@ -20,7 +19,6 @@ export default function Home() {
         <LaExperiencia />
         <Filosofia />
         <AntesDespues />
-        <Metodologia />
         <FAQ />
         <FinalCTA />
       </main>

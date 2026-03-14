@@ -9,7 +9,7 @@ import { useSmoothScroll } from '@/components/hooks/useSmoothScroll';
 const navLinks = [
   { label: 'El Método', href: '/#metodo' },
   { label: 'Resultados', href: '/#portfolio' },
-  { label: 'Testimonios', href: '/#testimonios' },
+  { label: 'Preguntas', href: '/#faq' },
 ];
 
 export function Footer() {

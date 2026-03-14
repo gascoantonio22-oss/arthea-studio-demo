@@ -65,8 +65,8 @@ export function FinalCTA() {
           transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"
         >
-          <div className="mb-7 border-b border-border/45 pb-6 text-center">
-            <div className="mx-auto max-w-[30rem]">
+          <div className="mb-7 border-b border-border/45 pb-6 text-left">
+            <div className="max-w-[30rem]">
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-accent/88">
                 Formulario
               </p>
@@ -86,7 +86,7 @@ export function FinalCTA() {
             </a>
           </div>
 
-          <div className="[&_label]:text-center [&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_p]:text-center [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
+          <div className="[&_label]:text-[0.84rem] [&_label]:font-medium [&_label]:text-foreground/82 [&_textarea]:rounded-[1.35rem] [&_textarea]:border-border/70 [&_textarea]:bg-background/80 [&_textarea]:shadow-none [&_input]:border-border/70 [&_input]:bg-background/80 [&_input]:shadow-none [&_select]:border-border/70 [&_select]:bg-background/80 [&_select]:shadow-none [&_button]:h-11 [&_button]:rounded-full [&_button]:border-foreground/12 [&_button]:bg-[rgba(23,21,22,0.96)] [&_button]:text-[0.69rem] [&_button]:tracking-[0.2em] [&_button]:shadow-[0_10px_22px_rgba(20,16,12,0.08)]">
             <ConsultationFormContent />
           </div>
         </motion.div>

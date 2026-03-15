@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 const faqs = [
   {
@@ -44,6 +45,7 @@ const faqs = [
 
 export function FAQ() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
 
   const containerVariants = {
@@ -58,7 +60,7 @@ export function FAQ() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: isMobile ? 18 : 28, filter: isMobile ? 'blur(0px)' : 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
@@ -122,7 +124,7 @@ export function FAQ() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+          initial={{ opacity: 0, y: isMobile ? 16 : 24, filter: isMobile ? 'blur(0px)' : 'blur(10px)' }}
           animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
           transition={{ duration: 0.9, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 md:mt-10"

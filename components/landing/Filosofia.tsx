@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 const logos = [
   {
@@ -63,6 +64,7 @@ const logos = [
 
 export function Filosofia() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
 
   const logosVariants = {
@@ -78,7 +80,7 @@ export function Filosofia() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 14, filter: 'blur(4px)' },
+    hidden: { opacity: 0, y: 14, filter: isMobile ? 'blur(0px)' : 'blur(4px)' },
     visible: {
       opacity: 1,
       y: 0,

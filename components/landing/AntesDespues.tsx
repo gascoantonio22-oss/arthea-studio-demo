@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 const projects = [
   {
@@ -41,6 +42,7 @@ function BeforeAfterCard({
   after,
   beforeAlt,
   afterAlt,
+  isMobile,
 }: {
   title: string;
   subtitle: string;
@@ -48,6 +50,7 @@ function BeforeAfterCard({
   after: string;
   beforeAlt: string;
   afterAlt: string;
+  isMobile: boolean;
 }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState(50);
@@ -63,7 +66,7 @@ function BeforeAfterCard({
 
   return (
     <motion.div
-      whileHover={{ y: -4 }}
+      whileHover={isMobile ? undefined : { y: -4 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       className="group h-full"
     >
@@ -155,6 +158,7 @@ function BeforeAfterCard({
 
 export function AntesDespues() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, { once: true, margin: '-12%' });
 
   const containerVariants = {
@@ -169,7 +173,7 @@ export function AntesDespues() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: isMobile ? 18 : 30, filter: isMobile ? 'blur(0px)' : 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
@@ -234,7 +238,7 @@ export function AntesDespues() {
               variants={itemVariants}
               className={index === 2 ? 'lg:col-span-2 lg:mx-auto lg:w-full lg:max-w-[46rem]' : ''}
             >
-              <BeforeAfterCard {...project} />
+              <BeforeAfterCard {...project} isMobile={isMobile} />
             </motion.div>
           ))}
         </motion.div>

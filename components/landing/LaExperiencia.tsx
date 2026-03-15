@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 const steps = [
   {
@@ -31,7 +32,15 @@ const steps = [
   },
 ];
 
-function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
+function StepCard({
+  step,
+  index,
+  isMobile,
+}: {
+  step: (typeof steps)[0];
+  index: number;
+  isMobile: boolean;
+}) {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: '-20%' });
   const { scrollYProgress } = useScroll({
@@ -39,8 +48,8 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
     offset: ['start end', 'end start'],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ['10%', '-10%']);
-  const decorY = useTransform(scrollYProgress, [0, 1], ['20%', '-20%']);
+  const imageY = useTransform(scrollYProgress, [0, 1], isMobile ? ['0%', '0%'] : ['10%', '-10%']);
+  const decorY = useTransform(scrollYProgress, [0, 1], isMobile ? ['0%', '0%'] : ['20%', '-20%']);
   const isReversed = index % 2 === 1;
 
   const containerVariants = {
@@ -57,8 +66,8 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
   const contentVariants = {
     hidden: {
       opacity: 0,
-      x: isReversed ? 50 : -50,
-      filter: 'blur(10px)',
+      x: isReversed ? (isMobile ? 20 : 50) : isMobile ? -20 : -50,
+      filter: isMobile ? 'blur(0px)' : 'blur(10px)',
     },
     visible: {
       opacity: 1,
@@ -74,8 +83,8 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
   const imageVariants = {
     hidden: {
       opacity: 0,
-      scale: 1.1,
-      x: isReversed ? -50 : 50,
+      scale: isMobile ? 1.02 : 1.1,
+      x: isReversed ? (isMobile ? -20 : -50) : isMobile ? 20 : 50,
     },
     visible: {
       opacity: 1,
@@ -133,7 +142,7 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
+            whileHover={isMobile ? undefined : { opacity: 1 }}
             transition={{ duration: 0.4 }}
             className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"
           />
@@ -191,6 +200,7 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
 export function LaExperiencia() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const isHeaderInView = useInView(headerRef, { once: true, margin: '-10%' });
 
   const headerVariants = {
@@ -204,7 +214,7 @@ export function LaExperiencia() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: isMobile ? 18 : 30, filter: isMobile ? 'blur(0px)' : 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
@@ -293,7 +303,7 @@ export function LaExperiencia() {
 
         <div className="space-y-16 md:space-y-24 lg:space-y-32">
           {steps.map((step, index) => (
-            <StepCard key={step.number} step={step} index={index} />
+            <StepCard key={step.number} step={step} index={index} isMobile={isMobile} />
           ))}
         </div>
       </div>

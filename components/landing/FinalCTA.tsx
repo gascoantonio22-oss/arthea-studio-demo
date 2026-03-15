@@ -4,9 +4,11 @@ import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useInView } from 'framer-motion';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import { ConsultationFormContent } from '@/components/modal/ConsultationFormContent';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 export function FinalCTA() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const isInView = useInView(sectionRef, { once: true, margin: '-10%' });
   const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -36,14 +38,14 @@ export function FinalCTA() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.82, filter: 'blur(28px)' }}
+        initial={{ opacity: 0, scale: 0.9, filter: isMobile ? 'blur(0px)' : 'blur(28px)' }}
         animate={isInView ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
         transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
         className="pointer-events-none absolute inset-x-0 top-16 mx-auto h-[26rem] w-[min(86vw,54rem)] rounded-full bg-[radial-gradient(circle,rgba(191,153,101,0.12)_0%,rgba(191,153,101,0.06)_34%,transparent_72%)]"
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 26, filter: 'blur(10px)' }}
+        initial={{ opacity: 0, y: isMobile ? 18 : 26, filter: isMobile ? 'blur(0px)' : 'blur(10px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 mx-auto max-w-5xl px-6"
@@ -72,7 +74,7 @@ export function FinalCTA() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
+          initial={{ opacity: 0, y: isMobile ? 14 : 18, filter: isMobile ? 'blur(0px)' : 'blur(10px)' }}
           animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
           transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-3xl rounded-[1.9rem] border border-white/10 bg-[rgba(255,251,246,0.96)] p-7 shadow-[0_18px_36px_rgba(0,0,0,0.16)] md:p-8"

@@ -6,9 +6,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useConsultationModal } from '@/components/hooks/useConsultationModal';
 import { useSmoothScroll } from '@/components/hooks/useSmoothScroll';
+import { useIsMobile } from '@/components/ui/use-mobile';
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const { open } = useConsultationModal();
   const { scrollToSection } = useSmoothScroll();
   const { scrollYProgress } = useScroll({
@@ -16,10 +18,10 @@ export function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const imageY = useTransform(scrollYProgress, [0, 1], isMobile ? ['0%', '0%'] : ['0%', '30%']);
+  const imageScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] : [1, 1.1]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], isMobile ? [1, 1] : [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], isMobile ? [0, 0] : [0, -50]);
 
   const handleNavClick = (href: string) => {
     scrollToSection(href);
@@ -37,7 +39,7 @@ export function Hero() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: isMobile ? 20 : 40, filter: isMobile ? 'blur(0px)' : 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,

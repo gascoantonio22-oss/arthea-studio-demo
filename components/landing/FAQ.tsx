@@ -22,7 +22,7 @@ const faqs = [
       'Trabajamos en ambas escalas. Lo esencial no es el tamaño, sino la oportunidad real de mejorar la experiencia espacial con criterio, elegancia y coherencia.',
   },
   {
-    question: '¿Cómo se define el presupuesto con rigor?',
+    question: '¿Cómo se define el presupuesto?',
     answer:
       'Después de estudiar el alcance, fijar calidades, coordinar soluciones y ordenar fases. Preferimos una cifra sólida y realista a una aproximación rápida que luego no se sostenga.',
   },
@@ -114,7 +114,7 @@ export function FAQ() {
           <p className="text-xs font-semibold uppercase tracking-[0.26em] text-accent">
             Preguntas frecuentes
           </p>
-          <h2 className="mt-4 text-balance font-serif text-[2.45rem] leading-[0.95] tracking-tight text-foreground md:text-[3.45rem]">
+          <h2 className="mt-4 text-balance font-serif text-[2.65rem] leading-[0.95] tracking-tight text-foreground md:text-[3.45rem]">
             Resuelve tus inquietudes
           </h2>
           <p className="mx-auto mt-5 max-w-[36rem] text-[1rem] leading-relaxed text-muted-foreground md:text-[1.05rem]">

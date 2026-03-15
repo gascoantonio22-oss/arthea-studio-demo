@@ -39,8 +39,9 @@ export function Footer() {
               <span className="ml-1 font-serif text-primary-foreground/60">Studio</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/60">
-              Estudio de arquitectura premium con una mirada serena sobre la
-              vivienda, el detalle y la manera en que se habita cada espacio.
+              Estudio de arquitectura y reformas premium con una mirada serena
+              sobre la vivienda, el detalle y la manera en que se habita cada
+              espacio.
             </p>
           </div>
 
